@@ -1,0 +1,18 @@
+export(FHtestrcp,FHtestrcc,FHtesticp,FHtestics)
+
+import(interval,Icens,MLEcens,PwrGSD,MASS,KMsurv)
+
+# exportPattern("^[[:alpha:]]+")
+
+S3method(print, FHtestrcp)
+S3method(print, FHtestrcc)
+S3method(print, FHtesticp)
+S3method(print, FHtestics)
+S3method(FHtestrcp, formula)
+S3method(FHtestrcp, default)
+S3method(FHtestrcc, formula)
+S3method(FHtestrcc, default)
+S3method(FHtesticp, formula)
+S3method(FHtesticp, default)
+S3method(FHtestics, formula)
+S3method(FHtestics, default)
