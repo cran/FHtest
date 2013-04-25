@@ -60,7 +60,7 @@ It is difficult to prove the asymptotic validity of the standard score tests for
 
         Gómez, G., Calle, M. L., Oller, R. and Langohr, K. (2009). Tutorial on methods for interval-censored data and their implementation in R. Statistical Modelling \bold{9}, 259--297.
 
-        Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics. doi: 10.1002/cjs.11139
+        Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics \bold{40}, 501--516.
 }
 \author{R. Oller and K. Langohr}
 \seealso{\link{FHtesticp}, \link[interval]{icfit} (Package \code{interval}), \link[Icens]{icsurv} (Package \code{Icens}).}
@@ -84,9 +84,6 @@ FHtestics(Surv(left,right,type="interval2")~group, data=illust3,
 ## Performs a k-sample test
 FHtestics(Surv(left,right,type="interval2")~as.factor(group), data=illust3,
           subset=c(1:100,601:700,1201:1300), rho=3, Lin=TRUE, Rin=TRUE)
-
-
-
 }
 
 \keyword{survival}

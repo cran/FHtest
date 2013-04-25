@@ -21,7 +21,7 @@
 \references{
         Gómez, G., Calle, M. L., Egea, J. M. and Muga, R. (2000). Risk of HIV infection as a function of the duration of intravenous drug use: A non-parametric Bayesian approach. Statistics in Medicine \bold{19}, 2641--2656.
 
-        Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics. doi: 10.1002/cjs.11139
+        Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics \bold{40}, 501--516.
 }
 %\examples{
 %data(duser)

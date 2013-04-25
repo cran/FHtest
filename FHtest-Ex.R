@@ -4,7 +4,7 @@ options(warn = 1)
 options(pager = "console")
 library('FHtest')
 
-assign(".oldSearch", search(), pos = 'CheckExEnv')
+base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 cleanEx()
 nameEx("FHtesticp")
 ### * FHtesticp
@@ -78,9 +78,6 @@ FHtestics(Surv(left,right,type="interval2")~as.factor(group), data=illust3,
 
 
 
-
-
-
 cleanEx()
 nameEx("FHtestrcc")
 ### * FHtestrcc
@@ -145,7 +142,7 @@ FHtestrcp(Surv(t2,d3)~as.character(group),data=bmt,rho=1,lambda=1)
 
 ### * <FOOTER>
 ###
-cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
+base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
 grDevices::dev.off()
 ###
 ### Local variables: ***

@@ -5,7 +5,7 @@
 \title{The Fleming-Harrington test for interval-censored data based on a permutation distribution}
 \description{The \code{FHtesticp} function performs a test for interval-censored data based on a permutation distribution. It uses the G-\eqn{\rho,\lambda} family of statistics for testing the differences of two or more survival curves.}
 \usage{
-\method{FHtesticp}{default}(L, R, group, rho=0, lambda=0,alternative, permcontrol=permControl(),
+\method{FHtesticp}{default}(L, R, group, rho=0, lambda=0,alternative, permcontrol=permControl(), 
           icFIT=NULL,initfit=NULL,icontrol=icfitControl(), exact=NULL,
           method=NULL,methodRule=methodRuleIC1,Lin=NULL,Rin=NULL,...)
 \method{FHtesticp}{formula}(formula, data, subset, na.action, ...)
@@ -63,7 +63,7 @@ There are several ways to perform the permutation test, and the function \code{m
 
         Gómez, G., Calle, M. L., Oller, R. and Langohr, K. (2009). Tutorial on methods for interval-censored data and their implementation in R. Statistical Modelling \bold{9}, 259--297.
 
-        Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics. doi: 10.1002/cjs.11139
+        Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics \bold{40}, 501--516.
 }
 \author{R. Oller and K. Langohr}
 \seealso{\link{FHtestics}, \link[interval]{icfit} (Package \code{interval}), \link[Icens]{icsurv} (Package \code{Icens}).}

@@ -7,11 +7,18 @@ function(L, R, group, rho=0, lambda=0, alternative, tol=10^-8,icFIT=NULL,initfit
 	L.name <- as.character(c(call$L))
 	R.name <- as.character(c(call$R))
 	group.name <- as.character(c(call$group))
-	if ((sum(nchar(L.name))+sum(nchar(R.name))+sum(nchar(group.name))) > 50){
-		L.name <- "L"
-		R.name <- "R"
-		group.name <- "group"
-		}
+    if ((length(L.name) > 1) | (length(R.name) > 1) | (length(group.name) > 
+        1)) {
+        L.name <- "L"
+        R.name <- "R"
+        group.name <- "group"
+    }
+    if ((sum(nchar(L.name)) + sum(nchar(R.name)) + sum(nchar(group.name))) > 
+        50) {
+        L.name <- "L"
+        R.name <- "R"
+        group.name <- "group"
+    }
 	if(missing(alternative)||all(alternative!=c("different","increasing","decreasing"))) alternative <- "different"
 
 	k <- length(unique(group))

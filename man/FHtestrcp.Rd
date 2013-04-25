@@ -47,6 +47,8 @@ There are several ways to perform the permutation test, and the function \code{m
         \item{call}{The matched call.}
 }
 \references{
+        Abd-Elfattah, E. F. and Butler, R. W. (2007). The weighted log-rank class of permutation tests: P-values and confidence intervals using saddlepoint methods. Biometrika \bold{94}, 543--551.
+
         Fleming, T. R. and Harrington, D. P. (2005). \emph{Counting Processes and Survival Analysis} New York: Wiley.
 
         Harrington, D. P. and Fleming, T. R. (1982). A class of rank test procedures for censored survival data. Biometrika \bold{69}, 553--566.

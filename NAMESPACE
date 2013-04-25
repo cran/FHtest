@@ -1,6 +1,6 @@
 export(FHtestrcp,FHtestrcc,FHtesticp,FHtestics)
 
-import(interval,Icens,MLEcens,PwrGSD,MASS,KMsurv)
+import(interval,Icens,MLEcens,MASS,KMsurv)
 
 # exportPattern("^[[:alpha:]]+")
 
