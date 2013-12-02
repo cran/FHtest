@@ -8,12 +8,12 @@
              a) The Fleming-Harrington test for right-censored data based on permutations and on counting processes.
 
              b) Extension of the Fleming-Harrington test for interval-censored data based on a permutation distribution and on a score vector distribution.}
-\details{ \tabular{ll}{ 
-    Package: \tab FHtest\cr 
-    Type: \tab Package\cr 
-    Version: \tab 1.0\cr 
-    Date: \tab 2013-04-25\cr 
-    License: \tab GPL (>= 2)\cr } 
+\details{ \tabular{ll}{
+    Package: \tab FHtest\cr
+    Type: \tab Package\cr
+    Version: \tab 1.1\cr
+    Date: \tab 2013-12-2\cr
+    License: \tab GPL (>= 2)\cr }
 }
 \author{ Ramon Oller and Klaus Langohr
 

@@ -1,23 +1,20 @@
 rcc <-
-function (times, status, z, rho, lambda){
-
+function (times, status, z, rho, lambda) 
+{
     uz <- sort(unique(z))
     k <- length(uz)
     fit <- survfit(Surv(times, status) ~ 1)
 
-    fail <- fit$time[fit$n.event>0]
+    fail <- fit$time[fit$n.event > 0]
 
-    w <- fit$surv[fit$n.event>0]
+    w <- fit$surv[fit$n.event > 0]
     w <- c(1, w[1:(length(w) - 1)])
 
-    neventg <- table(z[status>0],times[status>0])
+    neventg <- table(z[status > 0], times[status > 0])
     nevent <- colSums(neventg)
 
     nriskg <- matrix(1, length(fail), k)
-    for (i in 1:k) {
-    aux <- sum(z == uz[i])-c(0,cumsum(neventg[i,]))-cumsum(hist(times[(status==0)&(z==uz[i])],breaks=c(0,fail,10*max(fail)),plot=FALSE)$count)
-    nriskg[, i] <- aux[1:length(w)]
-    }
+    for (i in 1:k) nriskg[, i] <- colSums(matrix(rep(fail,each=sum(z==uz[i])),,length(fail))<=times[z==uz[i]])
     nrisk <- rowSums(nriskg)
 
     observed <- (w^rho * (1 - w)^lambda) %*% t(neventg)

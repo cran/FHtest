@@ -1,5 +1,4 @@
-198f0ae8558e98a017e48ba554846390 *DESCRIPTION
-fbc92539c0ca19b507a154d93b37cb07 *FHtest-Ex.R
+cc4517c5860b9bdc89e0bdee2405a52e *DESCRIPTION
 f0485fb98aafd471014337bfebcd6da6 *NAMESPACE
 cdc4f0dbbf8ca2069e66c0d0e7fd8301 *R/FHtest-internal.R
 aef26b9560a0f345d8df1b0d79328c60 *R/FHtesticp.R
@@ -17,13 +16,13 @@ eafed90266cc8cd40783b1d08217056e *R/FHtestrcp.formula.R
 18ea68f18112da41990f159058a945d5 *R/ics.R
 bb220fa58957ae97bff550afb01483ba *R/print.FHtesticp.R
 14d752864017a749715c5ff0f894ef2c *R/print.FHtestics.R
-800ce04d508631d32377d67dabba7cac *R/print.FHtestrcc.R
+65c03d27fc374bda207cdec1050c5580 *R/print.FHtestrcc.R
 ebf61f79b06e95ff59a7fa10d673f2dc *R/print.FHtestrcp.R
-fa621922f5145260b984808080e0db95 *R/rcc.R
+16414d88c9b6ea5db257ecb81b987463 *R/rcc.R
 b669647edd9f51d98ac5cfff236146d9 *R/rcp.R
-ffd547667e28bcf3f2eced762dba8472 *data/duser.rda
-7784a37d837cc7b5dc9c527af8968c9b *data/illust3.rda
-865e730758dc30c8163eb1d1d97d931c *man/FHtest-package.Rd
+720dd14065b6ada75f879d1fdc49e905 *data/duser.rda
+eb5546fc71fb16156debb2534313e0ea *data/illust3.rda
+9cfcb11884c1f13ccb2f4cb17ec249d9 *man/FHtest-package.Rd
 2b26e3b2422a2abed20170482d645d35 *man/FHtesticp.Rd
 23c31c0920841b86bd87e2100dcd6c71 *man/FHtestics.Rd
 d6c7a94e478b618c9eaeac670264ba6e *man/FHtestrcc.Rd
