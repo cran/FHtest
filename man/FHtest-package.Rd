@@ -2,17 +2,17 @@
 \alias{FHtest-package}
 \alias{FHtest}
 \docType{package}
-\title{Tests for right and interval-censored survival data based on the Fleming-Harrington class}
-\description{FHtest offers several tests for the comparison of two or more survival curves:
+\title{Tests for Right and Interval-Censored Survival Data Based on the Fleming-Harrington Class}
+\description{This package offers several tests for the comparison of two or more survival curves:
 
              a) The Fleming-Harrington test for right-censored data based on permutations and on counting processes.
 
-             b) Extension of the Fleming-Harrington test for interval-censored data based on a permutation distribution and on a score vector distribution.}
+             b) An extension of the Fleming-Harrington test for interval-censored data based on a permutation distribution and on a score vector distribution.}
 \details{ \tabular{ll}{
     Package: \tab FHtest\cr
     Type: \tab Package\cr
-    Version: \tab 1.1\cr
-    Date: \tab 2013-12-2\cr
+    Version: \tab 1.2\cr
+    Date: \tab 2015-5-27\cr
     License: \tab GPL (>= 2)\cr }
 }
 \author{ Ramon Oller and Klaus Langohr

@@ -25,7 +25,11 @@ function(L, R, group, rho=0, lambda=0, alternative, tol=10^-8,icFIT=NULL,initfit
 	ord <- order(group)
 	if(length(Lin)>1) Lin <- Lin[ord]
 	if(length(Rin)>1) Rin <- Rin[ord] 
-	icp <-ictest(L[ord],R[ord],group[ord], scores = "general",dqfunc=function(x){x*pbeta(1-x,1,rho+10^-15)*gamma(rho+10^-15)/gamma(rho+1)}, method="pclt",icFIT=icFIT,initfit=initfit,icontrol=icontrol,Lin=Lin,Rin=Rin,...)		
+	if(!is.null(icFIT)) icFIT$A <- icFIT$A[ord,]
+	if(!is.null(initfit)) initfit$A <- initfit$A[ord,]
+	limrho<-rho
+	if(rho<10^-7) limrho<-10^-7
+	icp <-ictest(L[ord],R[ord],group[ord], scores = "general",dqfunc=function(x){x*pbeta(1-x,1,limrho)*beta(1,limrho)}, method="pclt",icFIT=icFIT,initfit=initfit,icontrol=icontrol,Lin=Lin,Rin=Rin,...)		
 	icp$scores[ord] <- icp$scores
 
 	if ((is.numeric(group))&(k>2)){

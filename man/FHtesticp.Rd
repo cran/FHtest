@@ -5,9 +5,9 @@
 \title{The Fleming-Harrington test for interval-censored data based on a permutation distribution}
 \description{The \code{FHtesticp} function performs a test for interval-censored data based on a permutation distribution. It uses the G-\eqn{\rho,\lambda} family of statistics for testing the differences of two or more survival curves.}
 \usage{
-\method{FHtesticp}{default}(L, R, group, rho=0, lambda=0,alternative, permcontrol=permControl(), 
-          icFIT=NULL,initfit=NULL,icontrol=icfitControl(), exact=NULL,
-          method=NULL,methodRule=methodRuleIC1,Lin=NULL,Rin=NULL,...)
+\method{FHtesticp}{default}(L, R, group, rho=0, lambda=0, alternative, permcontrol=permControl(),
+          icFIT=NULL, initfit=NULL, icontrol=icfitControl(), exact=NULL,
+          method=NULL, methodRule=methodRuleIC1, Lin=NULL, Rin=NULL, ...)
 \method{FHtesticp}{formula}(formula, data, subset, na.action, ...)
 }
 \arguments{
@@ -70,24 +70,24 @@ There are several ways to perform the permutation test, and the function \code{m
 \examples{
 ## Performs a two-sample test
 data(bcos)
-FHtesticp(Surv(left,right,type="interval2")~treatment,data=bcos)
+FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos)
 
-FHtesticp(Surv(left,right,type="interval2")~treatment,data=bcos,exact=TRUE)
+FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos, exact=TRUE)
 
-FHtesticp(Surv(left,right,type="interval2")~treatment,data=bcos,rho=1)
+FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos, rho=1)
 
 data(duser)
-FHtesticp(Surv(left,right,type="interval2")~as.factor(age>21), data=duser,rho=1,
-          Lin=TRUE,Rin=TRUE,subset=(zper==3), icontrol=icfitControl(maxit=100000))
+FHtesticp(Surv(left, right, type="interval2")~as.factor(age>21), data=duser, rho=1,
+          Lin=TRUE, Rin=TRUE, subset=(zper==3), icontrol=icfitControl(maxit=100000))
 
 ## Performs a trend test
 data(illust3)
-FHtesticp(Surv(left,right,type="interval2")~group,data=illust3,alternative="increasing",
-          subset=c(1:100,601:700,1201:1300),lambda=1,Lin=TRUE,Rin=TRUE)
+FHtesticp(Surv(left, right, type="interval2")~group, data=illust3, alternative="increasing",
+          subset=c(1:100, 601:700, 1201:1300), lambda=1, Lin=TRUE, Rin=TRUE)
 
 ## Performs a k-sample test
-FHtesticp(Surv(left,right,type="interval2")~as.character(zper),data=duser,rho=3,lambda=3,
-          Lin=TRUE,Rin=TRUE,subset=(zper>1)&(zgen==0))
+FHtesticp(Surv(left, right, type="interval2")~as.character(zper), data=duser, rho=3, lambda=3,
+          Lin=TRUE, Rin=TRUE, subset=(zper>1)&(zgen==0))
 }
 
 \keyword{survival}

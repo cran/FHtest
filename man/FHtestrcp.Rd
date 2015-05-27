@@ -5,8 +5,8 @@
 \title{The Fleming-Harrington test for right-censored data based on permutations}
 \description{The \code{FHtestrcp} function performs a test for right-censored data based on a permutation distribution. It uses the G-\eqn{\rho,\lambda} family of statistics for testing the differences of two or more survival curves.}
 \usage{
-\method{FHtestrcp}{default}(L, R, group, rho = 0, lambda = 0, alternative, method = NULL, 
-          methodRule = methodRuleIC1, exact = NULL, permcontrol = permControl(),...)
+\method{FHtestrcp}{default}(L, R, group, rho = 0, lambda = 0, alternative, method = NULL,
+          methodRule = methodRuleIC1, exact = NULL, permcontrol = permControl(), ...)
 \method{FHtestrcp}{formula}(formula, data, subset, na.action, ...)
 }
 \arguments{
@@ -61,21 +61,21 @@ There are several ways to perform the permutation test, and the function \code{m
 \seealso{\link{FHtestrcc}}
 \examples{
 ## Performs a two-sample  test	
-FHtestrcp(Surv(futime, fustat) ~ rx,data=ovarian)
+FHtestrcp(Surv(futime, fustat)~rx, data=ovarian)
 
-FHtestrcp(Surv(futime, fustat) ~ rx,data=ovarian,method="exact.network")
+FHtestrcp(Surv(futime, fustat)~rx, data=ovarian, method="exact.network")
 
-FHtestrcp(Surv(futime, fustat) ~ rx,data=ovarian,rho=1)
+FHtestrcp(Surv(futime, fustat)~rx, data=ovarian, rho=1)
 
 ## Performs a trend test
 library(KMsurv)
 data(bmt)
-FHtestrcp(Surv(t2,d3)~group,data=bmt,rho=1,alternative="decreasing")
+FHtestrcp(Surv(t2, d3)~group, data=bmt, rho=1, alternative="decreasing")
 
-FHtestrcp(Surv(t2,d3)~group,data=bmt,rho=1,alternative="decreasing",exact=TRUE)
+FHtestrcp(Surv(t2, d3)~group, data=bmt, rho=1, alternative="decreasing", exact=TRUE)
 
 ## Performs a k-sample test
-FHtestrcp(Surv(t2,d3)~as.character(group),data=bmt,rho=1,lambda=1)
+FHtestrcp(Surv(t2, d3)~as.character(group), data=bmt, rho=1, lambda=1)
 }
 
 \keyword{survival}

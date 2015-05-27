@@ -1,6 +1,10 @@
-export(FHtestrcp,FHtestrcc,FHtesticp,FHtestics)
+export(FHtestrcp, FHtestrcc, FHtesticp, FHtestics)
 
-import(interval,Icens,MLEcens,MASS,KMsurv)
+import(interval, KMsurv)
+importFrom(survival, Surv, is.Surv, survfit)
+importFrom(MASS, ginv)
+importFrom(perm, permControl)
+
 
 # exportPattern("^[[:alpha:]]+")
 
