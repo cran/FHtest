@@ -3,7 +3,7 @@
 \title{Function \code{rcp}}
 \description{Internal function}
 \usage{
-rcp(times, ind, rho, lambda)
+  rcp(times, ind, rho, lambda)
 }
 \arguments{
   \item{times}{Survival times}

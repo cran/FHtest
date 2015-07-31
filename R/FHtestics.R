@@ -1,4 +1,4 @@
 FHtestics <-
 function(L, ...) {
-UseMethod("FHtestics")
+  UseMethod("FHtestics")
 }

@@ -60,21 +60,18 @@ There are several ways to perform the permutation test, and the function \code{m
 \author{R. Oller and K. Langohr}
 \seealso{\link{FHtestrcc}}
 \examples{
-## Performs a two-sample  test	
+## Two-sample tests	
 FHtestrcp(Surv(futime, fustat)~rx, data=ovarian)
-
 FHtestrcp(Surv(futime, fustat)~rx, data=ovarian, method="exact.network")
-
 FHtestrcp(Surv(futime, fustat)~rx, data=ovarian, rho=1)
 
-## Performs a trend test
+## Trend tests
 library(KMsurv)
 data(bmt)
 FHtestrcp(Surv(t2, d3)~group, data=bmt, rho=1, alternative="decreasing")
-
 FHtestrcp(Surv(t2, d3)~group, data=bmt, rho=1, alternative="decreasing", exact=TRUE)
 
-## Performs a k-sample test
+## K-sample test
 FHtestrcp(Surv(t2, d3)~as.character(group), data=bmt, rho=1, lambda=1)
 }
 

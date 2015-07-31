@@ -49,17 +49,16 @@ The appropriate selection of the parameters \code{rho} and \code{lambda} gives e
 \author{R. Oller and K. Langohr}
 \seealso{\link{FHtestrcp}}
 \examples{
-## Performs a two-sample  test
+## Two-sample tests
 FHtestrcc(Surv(futime, fustat)~rx, data=ovarian)
-
 FHtestrcc(Surv(futime, fustat)~rx, data=ovarian, rho=1)
 
-## Performs a trend test
+## Trend test
 library(KMsurv)
 data(bmt)
 FHtestrcc(Surv(t2, d3)~group, data=bmt, rho=1, alternative="decreasing")
 
-## Performs a k-sample test
+## K-sample test
 FHtestrcc(Surv(t2, d3)~as.character(group), data=bmt, rho=1, lambda=1)
 }
 

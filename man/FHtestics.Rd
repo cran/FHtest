@@ -6,7 +6,7 @@
 \description{The \code{FHtestics} function performs a test for interval-censored data based on a score vector distribution. It uses the G-\eqn{\rho} family of statistics (being \eqn{\lambda=0}) for testing the differences of two or more survival curves.}
 \usage{
 \method{FHtestics}{default}(L, R, group, rho = 0, lambda = 0, alternative, tol = 10^-8, icFIT = NULL,
-          initfit = NULL, icontrol = icfitControl(), Lin = NULL, Rin = NULL, ...)
+           initfit = NULL, icontrol = icfitControl(), Lin = NULL, Rin = NULL, ...)
 \method{FHtestics}{formula}(formula, data, subset, na.action, ...)
 }
 \arguments{
@@ -65,23 +65,22 @@ It is difficult to prove the asymptotic validity of the standard score tests for
 \author{R. Oller and K. Langohr}
 \seealso{\link{FHtesticp}, \link[interval]{icfit} (Package \code{interval}), \link[Icens]{icsurv} (Package \code{Icens}).}
 \examples{
-## Performs a two-sample  test
+## Two-sample tests
 data(bcos)
 FHtestics(Surv(left, right, type="interval2")~treatment, data=bcos)
-
 FHtestics(Surv(left, right, type="interval2")~treatment, data=bcos, rho=1)
 
 data(duser)
 FHtestics(Surv(left, right, type="interval2")~as.numeric(age>21), data=duser, rho=1,
           Lin=TRUE, Rin=TRUE, subset=(zper==3), icontrol=icfitControl(maxit=100000))
 
-## Performs a trend test
+## Trend test
 data(illust3)
 FHtestics(Surv(left, right, type="interval2")~group, data=illust3,
           subset=c(1:100, 601:700, 1201:1300), rho=2, alternative="increasing",
           Lin=TRUE, Rin=TRUE)
 
-## Performs a k-sample test
+## K-sample test
 FHtestics(Surv(left, right, type="interval2")~as.factor(group), data=illust3,
           subset=c(1:100, 601:700, 1201:1300), rho=3, Lin=TRUE, Rin=TRUE)
 }

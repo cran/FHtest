@@ -2,9 +2,9 @@ export(FHtestrcp, FHtestrcc, FHtesticp, FHtestics)
 
 import(interval, KMsurv)
 importFrom(survival, Surv, is.Surv, survfit)
-importFrom(MASS, ginv)
 importFrom(perm, permControl)
-
+importFrom(MASS, ginv)
+importFrom("stats", "aggregate", "model.extract", "pbeta", "pchisq", "pnorm", "var")
 
 # exportPattern("^[[:alpha:]]+")
 

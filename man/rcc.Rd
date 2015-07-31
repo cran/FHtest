@@ -3,7 +3,7 @@
 \title{Function \code{rcc}}
 \description{Internal function}
 \usage{
-rcc(times, status, z, rho, lambda)
+  rcc(times, status, z, rho, lambda)
 }
 \arguments{
   \item{times}{Survival times}

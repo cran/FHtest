@@ -1,5 +1,4 @@
 FHtestrcc <-
-function(L, ...)
-{
-UseMethod("FHtestrcc")
+function(L, ...){
+  UseMethod("FHtestrcc")
 }

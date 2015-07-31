@@ -68,24 +68,22 @@ There are several ways to perform the permutation test, and the function \code{m
 \author{R. Oller and K. Langohr}
 \seealso{\link{FHtestics}, \link[interval]{icfit} (Package \code{interval}), \link[Icens]{icsurv} (Package \code{Icens}).}
 \examples{
-## Performs a two-sample test
+## Two-sample tests
 data(bcos)
 FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos)
-
 FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos, exact=TRUE)
-
 FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos, rho=1)
 
 data(duser)
 FHtesticp(Surv(left, right, type="interval2")~as.factor(age>21), data=duser, rho=1,
           Lin=TRUE, Rin=TRUE, subset=(zper==3), icontrol=icfitControl(maxit=100000))
 
-## Performs a trend test
+## Trend test
 data(illust3)
 FHtesticp(Surv(left, right, type="interval2")~group, data=illust3, alternative="increasing",
           subset=c(1:100, 601:700, 1201:1300), lambda=1, Lin=TRUE, Rin=TRUE)
 
-## Performs a k-sample test
+## K-sample test
 FHtesticp(Surv(left, right, type="interval2")~as.character(zper), data=duser, rho=3, lambda=3,
           Lin=TRUE, Rin=TRUE, subset=(zper>1)&(zgen==0))
 }

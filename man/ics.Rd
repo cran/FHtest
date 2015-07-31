@@ -3,7 +3,7 @@
 \title{Function \code{ics}}
 \description{Internal function}
 \usage{
-ics(icFIT, group, rho, alternative = "two.sided", tol.svd = 10^-8)
+  ics(icFIT, group, rho, alternative = "two.sided", tol.svd = 10^-8)
 }
 \arguments{
   \item{icFIT}{Object of type \code{icFIT}}
