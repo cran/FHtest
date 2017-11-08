@@ -15,7 +15,7 @@ function (times, status, z, rho, lambda)
 
   nriskg <- matrix(1, length(fail), k)
   for (i in 1:k)
-    nriskg[, i] <- colSums(matrix(rep(fail,each=sum(z==uz[i])),,length(fail))<=times[z==uz[i]])
+    nriskg[, i] <- colSums(matrix(rep(fail,each=sum(z == uz[i])),,length(fail)) <= times[z == uz[i]])
   nrisk <- rowSums(nriskg)
 
   observed <- (w^rho * (1 - w)^lambda) %*% t(neventg)

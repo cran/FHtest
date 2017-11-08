@@ -9,8 +9,7 @@ function (icFIT, group, rho, alternative = "two.sided", tol.svd= 10^-8) {
         if (length(unique(x)) == 2)
             test <- "2-sample"
         else test <- "correlation"
-    }
-    else if (is.character(x) | is.factor(x)) {
+    } else if (is.character(x) | is.factor(x)) {
         ux <- unique(x)
         nx <- length(ux)
         xout <- matrix(0, n, nx)
@@ -60,14 +59,12 @@ function (icFIT, group, rho, alternative = "two.sided", tol.svd= 10^-8) {
             d2gdgam2[, u, u] <- (A[, u + 1] - A[, u]) * S[u] *
                 log(S[u]) * (1 + log(S[u]))
         }
-    }
-    else if (model.int == 2) {
+    } else if (model.int == 2) {
         for (u in 1:m) {
             d2gdgam2[, u, u] <- (A[, u + 1] - A[, u]) * (-(1/(rho^2))*S[u]) *
                 (1 - (S[u])^rho) * (-1 + (rho+1) * (S[u])^rho)
         }
-    }
-    else stop("model.int must be 1, or 2")
+    } else stop("model.int must be 1, or 2")
     d2L.dB2 <- matrix(0, q, q)
     d2L.dgam2 <- matrix(0, m, m)
     d2L.dBdgam <- matrix(0, q, m)
@@ -96,8 +93,7 @@ function (icFIT, group, rho, alternative = "two.sided", tol.svd= 10^-8) {
             statistic <- Z
             names(statistic) <- "Z"
             parameter <- NULL
-        }
-        else {
+        } else {
             statistic <- Z^2
             names(statistic) <- "Chi Square"
             parameter <- 1
@@ -105,8 +101,7 @@ function (icFIT, group, rho, alternative = "two.sided", tol.svd= 10^-8) {
         }
         p.value <- switch(alternative, less = p.lte, greater = p.gte,
             two.sided = p.twosidedAbs, two.sidedAbs = p.twosidedAbs)
-    }
-    else {
+    } else {
         svdv <- svd(V)
         index <- (svdv$d > tol.svd)
         ginvV <- svdv$v[, index] %*% ((1/svdv$d[index]) * t(svdv$u[,

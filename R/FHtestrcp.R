@@ -1,4 +1,4 @@
 FHtestrcp <-
-function(L, ...){
+function(L, ...) {
   UseMethod("FHtestrcp")
 }

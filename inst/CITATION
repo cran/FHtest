@@ -1,0 +1,17 @@
+bibentry(bibtype = "Article",
+  title        = "{FHtest}: An {R} Package for the Comparison of Survival Curves with Censored Data",
+  author       = c(person(given = "Ramon",
+                          family = "Oller",
+                          email = "ramon.oller@uvic.cat"),
+                   person(given = "Klaus",
+                          family = "Langohr")),
+  journal      = "Journal of Statistical Software",
+  year         = "2017",
+  volume       = "81",
+  number       = "15",
+  pages        = "1--25",
+  doi          = "10.18637/jss.v081.i15",
+
+  header       = "To cite FHtest in publications use:"
+)
+

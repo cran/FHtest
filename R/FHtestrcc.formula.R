@@ -1,5 +1,5 @@
 FHtestrcc.formula <-
-function (formula, data, subset, na.action,...)
+function (formula, data, subset, na.action, ...)
 {
 	call <- match.call()
 	m <- match.call(expand.dots = FALSE)
@@ -10,21 +10,21 @@ function (formula, data, subset, na.action,...)
 	nmf <- length(m)
 	if (nmf != 2)
       stop("formula should be in the form y~x, where y may be a Surv object")
-	if (!is.Surv(Y)){
-	  if (is.numeric(Y) & is.vector(Y)){
+	if (!is.Surv(Y)) {
+	  if (is.numeric(Y) & is.vector(Y)) {
         Y <- Surv(Y, rep(1, length(Y)))
       } else
           stop("Response must be a survival object or numeric vector")
 	}
 	LR <- SurvLR(Y)
-	if (!is.numeric(m[[2]])){
+	if (!is.numeric(m[[2]])) {
       group <- as.character(m[[2]])
     } else
         group <- m[[2]]
 	out <- do.call("FHtestrcc", c(list(L = LR$L, R = LR$R, group = group), list(...)))
 	group.name <- as.character(names(m)[2])
 	formula.name <- as.character(names(m)[1])
-	if ((sum(nchar(group.name))+sum(nchar(formula.name))) > 60){
+	if ((sum(nchar(group.name))+sum(nchar(formula.name))) > 60) {
 	  group.name <- "group"
 	  formula.name <- "Surv(time,status)"
 	}

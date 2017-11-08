@@ -11,8 +11,8 @@
 \details{ \tabular{ll}{
     Package: \tab FHtest\cr
     Type: \tab Package\cr
-    Version: \tab 1.3\cr
-    Date: \tab 2015-7-31\cr
+    Version: \tab 1.4\cr
+    Date: \tab 2017-11-8\cr
     License: \tab GPL (>= 2)\cr }
 }
 \author{ Ramon Oller and Klaus Langohr
@@ -21,6 +21,9 @@ Ramon Oller <ramon.oller@uvic.cat> }
 \references{
    Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of
         Statistics \bold{40}, 501--516.
+        
+   Oller, R. and Langohr, K. (2017). FHtest: An {R} Package for the Comparison of Survival Curves with Censored Data. Journal of Statistical 
+        Software \bold{81}, 1--25.
 }
 \keyword{survival}
 %\seealso{ %~~ Optional links to other man pages, e.g. ~~ %~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~ %}

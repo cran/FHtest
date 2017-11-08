@@ -27,11 +27,11 @@
   \item{\dots}{Additional arguments.}
 }
 \details{
-The appropriate selection of the parameters \code{rho} and \code{lambda} gives emphasis to early, middle or late hazard differences. For instance, in a given clinical trial, if one would like to assess whether the effect of a treatment or therapy on the survival is stronger at the earlier phases of the therapy, we should choose \code{lambda= 0}, with increasing values of \code{rho} emphasizing stronger early differences. If there were a clinical reason to believe that the effect of the therapy would be more pronounced towards the middle or the end of the follow-up period, it would make sense to choose \code{rho = lambda > 0} or \code{rho = 0} respectively, with increasing values of \code{lambda} emphasizing stronger middle or late differences. The choice of the weights has to be made prior to the examination of the data and taking into account that they should provide the greatest statistical power, which in turns depends on how it is believed the null is violated.
+The appropriate selection of the parameters \code{rho} and \code{lambda} gives emphasis to early, middle or late hazard differences. For instance, in a given clinical trial, if one would like to assess whether the effect of a treatment or therapy on the survival is stronger at the earlier phases of the therapy, we should choose \code{lambda = 0}, with increasing values of \code{rho} emphasizing stronger early differences. If there were a clinical reason to believe that the effect of the therapy would be more pronounced towards the middle or the end of the follow-up period, it would make sense to choose \code{rho = lambda > 0} or \code{rho = 0} respectively, with increasing values of \code{lambda} emphasizing stronger middle or late differences. The choice of the weights has to be made prior to the examination of the data and taking into account that they should provide the greatest statistical power, which in turns depends on how it is believed the null is violated.
 
 Many standard statistical tests may be put into the form of the permutation test (see Graubard and Korn, 1987). There is a choice of four different methods to calculate the \emph{p}-values (the last two are only available for the two-sample test): (1) \code{pclt}: using permutational central limit theorem (see, e.g., Sen, 1985). (2) \code{exact.mc}: exact method using Monte Carlo. (3) \code{exact.network}: exact method using a network algorithm (see, e.g., Agresti, Mehta, and Patel, 1990). Currently, the network method does not implement many of the time saving suggestions such as clubbing. (4) \code{exact.ce}: exact method using complete enumeration. This is good for very small sample sizes and when doing simulations, since the complete enumeration matrix need only be calculated once for the simulation.
 
-There are several ways to perform the permutation test, and the function \code{methodRuleIC1} chooses which of these ways will be used. The choice is basically between using a permutational central limit theorem (\code{method="pclt"}) or using an exact method. There are several algorithms for the exact method. Note that there are two exact two-sided methods for calculating p-values (see \code{permControl} and the \code{tsmethod} option).}
+There are several ways to perform the permutation test, and the function \code{methodRuleIC1} chooses which of these ways will be used. The choice is basically between using a permutational central limit theorem (\code{method = "pclt"}) or using an exact method. There are several algorithms for the exact method. Note that there are two exact two-sided methods for calculating p-values (see \code{permControl} and the \code{tsmethod} option).}
 
 \value{
         \item{information}{Full description of the test.}
@@ -43,7 +43,7 @@ There are several ways to perform the permutation test, and the function \code{m
         \item{var}{The variance matrix of the test.}
         \item{alt.phrase}{Phrase used to describe the alternative hypothesis.}
         \item{pvalue}{\emph{p}-value associated with the alternative hypothesis.}
-        \item{p.conf.int}{Confidence interval of \emph{p}-value. For \code{method='exact.mc'} only.}
+        \item{p.conf.int}{Confidence interval of \emph{p}-value. For \code{method = "exact.mc"} only.}
         \item{call}{The matched call.}
 }
 \references{
@@ -56,23 +56,26 @@ There are several ways to perform the permutation test, and the function \code{m
         Kalbfleisch, J. D. and Prentice, R. L. (2002). \emph{The Statistical Analysis of Failure Time Data.} New York: Wiley, 2nd Edition.
 
         Lawless, J. F. (2003). \emph{Statistical Models and Methods for Lifetime Data.} New York: Wiley, 2nd Edition.
+        
+        Oller, R. and Langohr, K. (2017). FHtest: An {R} Package for the Comparison of Survival Curves with Censored Data. Journal of Statistical Software \bold{81}, 1--25.
 }
 \author{R. Oller and K. Langohr}
 \seealso{\link{FHtestrcc}}
 \examples{
 ## Two-sample tests	
-FHtestrcp(Surv(futime, fustat)~rx, data=ovarian)
-FHtestrcp(Surv(futime, fustat)~rx, data=ovarian, method="exact.network")
-FHtestrcp(Surv(futime, fustat)~rx, data=ovarian, rho=1)
+FHtestrcp(Surv(futime, fustat)~rx, data = ovarian)
+FHtestrcp(Surv(futime, fustat)~rx, data = ovarian, method = "exact.network")
+FHtestrcp(Surv(futime, fustat)~rx, data = ovarian, rho = 1)
 
 ## Trend tests
 library(KMsurv)
 data(bmt)
-FHtestrcp(Surv(t2, d3)~group, data=bmt, rho=1, alternative="decreasing")
-FHtestrcp(Surv(t2, d3)~group, data=bmt, rho=1, alternative="decreasing", exact=TRUE)
+FHtestrcp(Surv(t2, d3)~group, data = bmt, rho = 1, alternative = "decreasing")
+FHtestrcp(Surv(t2, d3)~group, data = bmt, rho = 1, alternative = "decreasing", 
+          exact = TRUE)
 
 ## K-sample test
-FHtestrcp(Surv(t2, d3)~as.character(group), data=bmt, rho=1, lambda=1)
+FHtestrcp(Surv(t2, d3)~as.character(group), data = bmt, rho = 1, lambda = 1)
 }
 
 \keyword{survival}

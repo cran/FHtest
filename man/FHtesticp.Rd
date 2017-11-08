@@ -5,14 +5,14 @@
 \title{The Fleming-Harrington test for interval-censored data based on a permutation distribution}
 \description{The \code{FHtesticp} function performs a test for interval-censored data based on a permutation distribution. It uses the G-\eqn{\rho,\lambda} family of statistics for testing the differences of two or more survival curves.}
 \usage{
-\method{FHtesticp}{default}(L, R, group, rho=0, lambda=0, alternative, permcontrol=permControl(),
-          icFIT=NULL, initfit=NULL, icontrol=icfitControl(), exact=NULL,
-          method=NULL, methodRule=methodRuleIC1, Lin=NULL, Rin=NULL, ...)
+\method{FHtesticp}{default}(L, R, group, rho = 0, lambda = 0, alternative, permcontrol = permControl(),
+          icFIT = NULL, initfit = NULL, icontrol = icfitControl(), exact = NULL,
+          method = NULL, methodRule = methodRuleIC1, Lin = NULL, Rin = NULL, ...)
 \method{FHtesticp}{formula}(formula, data, subset, na.action, ...)
 }
 \arguments{
-  \item{L}{Numeric vector of the left endpoints of the censoring intervals (equivalent to the first element of \code{Surv} when \code{type='interval2'}).}
-  \item{R}{Numeric vector of the right endpoints of the censoring intervals (equivalent to the second element of \code{Surv} when \code{type='interval2'}).}
+  \item{L}{Numeric vector of the left endpoints of the censoring intervals (equivalent to the first element of \code{Surv} when \code{type = "interval2"}).}
+  \item{R}{Numeric vector of the right endpoints of the censoring intervals (equivalent to the second element of \code{Surv} when \code{type = "interval2"}).}
   \item{group}{A vector denoting the group variable for which the test is desired. If \code{group} is a factor or character, then a k-sample test is performed, where k is the number of unique values of \code{group}. If \code{group} is numeric, then a trend ("correlation" type) test is performed. If there are only two groups, both methods give the same results.}
   \item{rho}{A scalar parameter that controls the type of test (see details).}
   \item{lambda}{A scalar parameter that controls the type of test (see details).}
@@ -33,13 +33,13 @@
   \item{\dots}{Additional arguments.}
 }
 \details{
-The appropriate selection of the parameters \code{rho} and \code{lambda} gives emphasis to early, middle or late hazard differences. For instance, in a given clinical trial, if one would like to assess whether the effect of a treatment or therapy on the survival is stronger at the earlier phases of the therapy, we should choose \code{lambda= 0}, with increasing values of \code{rho} emphasizing stronger early differences. If there were a clinical reason to believe that the effect of the therapy would be more pronounced towards the middle or the end of the follow-up period, it would make sense to choose \code{rho = lambda > 0} or \code{rho = 0} respectively, with increasing values of \code{lambda} emphasizing stronger middle or late differences. The choice of the weights has to be made prior to the examination of the data and taking into account that they should provide the greatest statistical power, which in turns depends on how it is believed the null is violated.
+The appropriate selection of the parameters \code{rho} and \code{lambda} gives emphasis to early, middle or late hazard differences. For instance, in a given clinical trial, if one would like to assess whether the effect of a treatment or therapy on the survival is stronger at the earlier phases of the therapy, we should choose \code{lambda = 0}, with increasing values of \code{rho} emphasizing stronger early differences. If there were a clinical reason to believe that the effect of the therapy would be more pronounced towards the middle or the end of the follow-up period, it would make sense to choose \code{rho = lambda > 0} or \code{rho = 0} respectively, with increasing values of \code{lambda} emphasizing stronger middle or late differences. The choice of the weights has to be made prior to the examination of the data and taking into account that they should provide the greatest statistical power, which in turns depends on how it is believed the null is violated.
 
-The censoring in the default case (when \code{Lin=Rin=NULL}) assumes there are n (\code{n=length(L)}) failure times, and the \emph{i}th one is in the interval between \code{L[i]} and \code{R[i]}. The default is not to include \code{L[i]} in the interval unless \code{L[i]=R[i]}, and to include \code{R[i]} in the interval unless \code{R[i]=Inf}. When \code{Lin} and \code{Rin} are not \code{NULL} they describe whether to include \code{L} and \code{R} in the associated interval. If either \code{Lin} or \code{Rin} is length 1 then it is repeated n times, otherwise they should be logicals of length n.
+The censoring in the default case (when \code{Lin = Rin = NULL}) assumes there are n (\code{n = length(L)}) failure times, and the \emph{i}th one is in the interval between \code{L[i]} and \code{R[i]}. The default is not to include \code{L[i]} in the interval unless \code{L[i] = R[i]}, and to include \code{R[i]} in the interval unless \code{R[i] = Inf}. When \code{Lin} and \code{Rin} are not \code{NULL} they describe whether to include \code{L} and \code{R} in the associated interval. If either \code{Lin} or \code{Rin} is length 1 then it is repeated n times, otherwise they should be logicals of length n.
 
 Many standard statistical tests may be put into the form of the permutation test (see Graubard and Korn, 1987). There is a choice of four different methods to calculate the \emph{p}-values (the last two are only available for the two-sample test): (1) \code{pclt}: using permutational central limit theorem (see, e.g., Sen, 1985). (2) \code{exact.mc}: exact method using Monte Carlo. (3) \code{exact.network}: exact method using a network algorithm (see, e.g., Agresti, Mehta, and Patel, 1990). Currently, the network method does not implement many of the time saving suggestions such as clubbing. (4) \code{exact.ce}: exact method using complete enumeration. This is good for very small sample sizes and when doing simulations, since the complete enumeration matrix need only be calculated once for the simulation.
 
-There are several ways to perform the permutation test, and the function \code{methodRuleIC1} chooses which of these ways will be used. The choice is basically between using a permutational central limit theorem (\code{method="pclt"}) or using an exact method. There are several algorithms for the exact method. Note that there are two exact two-sided methods for calculating p-values (see \code{permControl} and the \code{tsmethod} option).}
+There are several ways to perform the permutation test, and the function \code{methodRuleIC1} chooses which of these ways will be used. The choice is basically between using a permutational central limit theorem (\code{method = "pclt"}) or using an exact method. There are several algorithms for the exact method. Note that there are two exact two-sided methods for calculating p-values (see \code{permControl} and the \code{tsmethod} option).}
 
 \value{
         \item{information}{Full description of the test.}
@@ -52,7 +52,7 @@ There are several ways to perform the permutation test, and the function \code{m
         \item{var}{The variance matrix of the test.}
         \item{alt.phrase}{Phrase used to describe the alternative hypothesis.}
         \item{pvalue}{\emph{p}-value associated with the alternative hypothesis.}
-        \item{p.conf.int}{Confidence interval of \emph{p}-value. For \code{method='exact.mc'} only.}
+        \item{p.conf.int}{Confidence interval of \emph{p}-value. For \code{method = "exact.mc"} only.}
         \item{call}{The matched call.}
 }
 \section{Warning}{Since the input of \code{icFIT} is only for saving computational time, no checks are carried out to determine if the \code{icFIT} is in fact the correct one. Thus, one may get wrong answers with no warnings if the wrong \code{icFIT} object is chosen. A safer way to save computational time is to choose for \code{initfit} either a precalculated \code{icfit} object or an \code{icsurv} object from a function in the \code{Icens} package such as \code{EMICM}. If this is done, either the correct answer or a warning will be returned even if a bad guess for \code{initfit} is chosen. Additionally, one may specify a function name for \code{initfit}. The default is \code{NULL} which uses a simple initial fit function (the weighted average of the \code{A} matrix, see the code of \link[interval]{icfit.default} (Package \code{interval})). A fast but somewhat unstable function uses \code{initcomputeMLE} which uses function \link[MLEcens]{computeMLE} of the 'MLEcens' package. See the help for \code{icfit} for details on the \code{initfit option.}}
@@ -64,28 +64,32 @@ There are several ways to perform the permutation test, and the function \code{m
         Gómez, G., Calle, M. L., Oller, R. and Langohr, K. (2009). Tutorial on methods for interval-censored data and their implementation in R. Statistical Modelling \bold{9}, 259--297.
 
         Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics \bold{40}, 501--516.
+        
+        Oller, R. and Langohr, K. (2017). FHtest: An {R} Package for the Comparison of Survival Curves with Censored Data. Journal of Statistical Software \bold{81}, 1--25.
 }
 \author{R. Oller and K. Langohr}
 \seealso{\link{FHtestics}, \link[interval]{icfit} (Package \code{interval}), \link[Icens]{icsurv} (Package \code{Icens}).}
 \examples{
 ## Two-sample tests
 data(bcos)
-FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos)
-FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos, exact=TRUE)
-FHtesticp(Surv(left, right, type="interval2")~treatment, data=bcos, rho=1)
+FHtesticp(Surv(left, right, type = "interval2")~treatment, data = bcos)
+FHtesticp(Surv(left, right, type = "interval2")~treatment, data = bcos, exact = TRUE)
+FHtesticp(Surv(left, right, type = "interval2")~treatment, data = bcos, rho = 1)
 
 data(duser)
-FHtesticp(Surv(left, right, type="interval2")~as.factor(age>21), data=duser, rho=1,
-          Lin=TRUE, Rin=TRUE, subset=(zper==3), icontrol=icfitControl(maxit=100000))
+FHtesticp(Surv(left, right, type = "interval2")~as.factor(age > 21), data = duser, 
+          subset = (zper == 3), rho = 1, Lin = TRUE, Rin = TRUE, 
+          icontrol = icfitControl(maxit = 100000))
 
 ## Trend test
 data(illust3)
-FHtesticp(Surv(left, right, type="interval2")~group, data=illust3, alternative="increasing",
-          subset=c(1:100, 601:700, 1201:1300), lambda=1, Lin=TRUE, Rin=TRUE)
+FHtesticp(Surv(left, right, type = "interval2")~group, data = illust3, 
+          subset = c(1:100, 601:700, 1201:1250), lambda = 1, Lin = TRUE, 
+          Rin = TRUE, alternative = "increasing")
 
 ## K-sample test
-FHtesticp(Surv(left, right, type="interval2")~as.character(zper), data=duser, rho=3, lambda=3,
-          Lin=TRUE, Rin=TRUE, subset=(zper>1)&(zgen==0))
+FHtesticp(Surv(left, right, type = "interval2")~as.character(zper), data = duser, 
+          subset = (zper>1)&(zgen == 0), rho = 3, lambda = 3, Lin = TRUE, Rin = TRUE)
 }
 
 \keyword{survival}
