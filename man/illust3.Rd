@@ -9,7 +9,7 @@
   \describe{
     \item{\code{left}}{Left endpoint of censoring interval.}
     \item{\code{right}}{Right endpoint of censoring interval.}
-    \item{\code{group}}{Treatment group (1=deferred therapy; 2=500 mg/day dosage; 3=1500 mg/day dosage).}
+    \item{\code{group}}{Treatment group (1 = deferred therapy; 2 = 500 mg/day dosage; 3 = 1500 mg/day dosage).}
   }
 } 
 \references{

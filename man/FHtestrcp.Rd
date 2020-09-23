@@ -17,7 +17,7 @@
   \item{lambda}{A scalar parameter that controls the type of test (see details).}
   \item{alternative}{Character giving the type of alternative hypothesis for two-sample and trend tests: \code{"different"}, \code{"increasing"} or \code{"decreasing"} survival functions. For the k-sample case, \code{"different"} should be chosen.}
   \item{method}{A character value, one of \code{"pclt"}, \code{"exact.network"}, \code{"exact.ce"}, \code{"exact.mc"}. If no value is specified, function \code{methodRule} chooses the value.}
-  \item{methodRule}{A function used to choose the method. Default value is \code{methodRuleIC1} (see details in \link[perm]{perm}).}
+  \item{methodRule}{A function used to choose the method. Default value is \code{methodRuleIC1} (see details in \link[perm:permTS]{perm}).}
   \item{exact}{A logical value, where \code{TRUE} denotes exact test. Ignored if \code{method} is not \code{NULL}.}
   \item{permcontrol}{List of arguments for controlling permutation tests. Default value is \code{permControl}.}
   \item{formula}{A formula with a numeric vector as response (which assumes no censoring) or \code{Surv} object. The right side of the formula is the group variable. No \code{strata()} is allowed.}
@@ -63,19 +63,19 @@ There are several ways to perform the permutation test, and the function \code{m
 \seealso{\link{FHtestrcc}}
 \examples{
 ## Two-sample tests	
-FHtestrcp(Surv(futime, fustat)~rx, data = ovarian)
-FHtestrcp(Surv(futime, fustat)~rx, data = ovarian, method = "exact.network")
-FHtestrcp(Surv(futime, fustat)~rx, data = ovarian, rho = 1)
+FHtestrcp(Surv(futime, fustat) ~ rx, data = ovarian)
+FHtestrcp(Surv(futime, fustat) ~ rx, data = ovarian, method = "exact.network")
+FHtestrcp(Surv(futime, fustat) ~ rx, data = ovarian, rho = 1)
 
 ## Trend tests
 library(KMsurv)
 data(bmt)
-FHtestrcp(Surv(t2, d3)~group, data = bmt, rho = 1, alternative = "decreasing")
-FHtestrcp(Surv(t2, d3)~group, data = bmt, rho = 1, alternative = "decreasing", 
+FHtestrcp(Surv(t2, d3) ~ group, data = bmt, rho = 1, alternative = "decreasing")
+FHtestrcp(Surv(t2, d3) ~ group, data = bmt, rho = 1, alternative = "decreasing", 
           exact = TRUE)
 
 ## K-sample test
-FHtestrcp(Surv(t2, d3)~as.character(group), data = bmt, rho = 1, lambda = 1)
+FHtestrcp(Surv(t2, d3) ~ as.character(group), data = bmt, rho = 1, lambda = 1)
 }
 
 \keyword{survival}

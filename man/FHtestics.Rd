@@ -69,22 +69,22 @@ It is difficult to prove the asymptotic validity of the standard score tests for
 \examples{
 ## Two-sample tests
 data(bcos)
-FHtestics(Surv(left, right, type = "interval2")~treatment, data = bcos)
-FHtestics(Surv(left, right, type = "interval2")~treatment, data = bcos, rho = 1)
+FHtestics(Surv(left, right, type = "interval2") ~ treatment, data = bcos)
+FHtestics(Surv(left, right, type = "interval2") ~ treatment, data = bcos, rho = 1)
 
 data(duser)
-FHtestics(Surv(left, right, type = "interval2")~as.numeric(age > 21), data = duser, 
+FHtestics(Surv(left, right, type = "interval2") ~ as.numeric(age > 21), data = duser, 
           rho = 1, Lin = TRUE, Rin = TRUE, subset = (zper == 3), 
           icontrol = icfitControl(maxit = 100000))
 
 ## Trend test
 data(illust3)
-FHtestics(Surv(left, right, type = "interval2")~group, data = illust3,
+FHtestics(Surv(left, right, type = "interval2") ~ group, data = illust3,
           subset = c(1:100, 601:700, 1201:1300), rho = 2, Lin = TRUE, Rin = TRUE,
           alternative = "increasing")
 
 ## K-sample test
-FHtestics(Surv(left, right, type = "interval2")~as.factor(group), data = illust3,
+FHtestics(Surv(left, right, type = "interval2") ~ as.factor(group), data = illust3,
           subset = c(1:100, 601:700, 1201:1300), rho = 3, Lin = TRUE, Rin = TRUE)
 }
 

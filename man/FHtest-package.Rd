@@ -11,8 +11,8 @@
 \details{ \tabular{ll}{
     Package: \tab FHtest\cr
     Type: \tab Package\cr
-    Version: \tab 1.4\cr
-    Date: \tab 2017-11-8\cr
+    Version: \tab 1.5\cr
+    Date: \tab 2020-9-23\cr
     License: \tab GPL (>= 2)\cr }
 }
 \author{ Ramon Oller and Klaus Langohr

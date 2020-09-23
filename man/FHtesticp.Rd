@@ -23,7 +23,7 @@
   \item{icontrol}{List of arguments for controling the NPMLE algorithm in call to \code{icfit}. Default value is \code{icfitControl}.}
   \item{exact}{A logical value, where \code{TRUE} denotes exact test. Ignored if \code{method} is not \code{NULL}.}
   \item{method}{A character value, one of \code{"pclt"}, \code{"exact.network"}, \code{"exact.ce"}, \code{"exact.mc"}. If no value is specified, function \code{methodRule} chooses the value.}
-  \item{methodRule}{A function used to choose the method. Default value is \code{methodRuleIC1} (see details in \link[perm]{perm}).}
+  \item{methodRule}{A function used to choose the method. Default value is \code{methodRuleIC1} (see details in \link[perm:permTS]{perm}).}
   \item{Lin}{Logical vector: should \code{L} be included in the interval?}
   \item{Rin}{Logical vector: should \code{R} be included in the interval?}
   \item{formula}{A formula with a numeric vector as response (which assumes no censoring) or \code{Surv} object. The right side of the formula is the group variable. No \code{strata()} is allowed.}
@@ -72,24 +72,24 @@ There are several ways to perform the permutation test, and the function \code{m
 \examples{
 ## Two-sample tests
 data(bcos)
-FHtesticp(Surv(left, right, type = "interval2")~treatment, data = bcos)
-FHtesticp(Surv(left, right, type = "interval2")~treatment, data = bcos, exact = TRUE)
-FHtesticp(Surv(left, right, type = "interval2")~treatment, data = bcos, rho = 1)
+FHtesticp(Surv(left, right, type = "interval2") ~ treatment, data = bcos)
+FHtesticp(Surv(left, right, type = "interval2") ~ treatment, data = bcos, exact = TRUE)
+FHtesticp(Surv(left, right, type = "interval2") ~ treatment, data = bcos, rho = 1)
 
 data(duser)
-FHtesticp(Surv(left, right, type = "interval2")~as.factor(age > 21), data = duser, 
+FHtesticp(Surv(left, right, type = "interval2") ~ as.factor(age > 21), data = duser, 
           subset = (zper == 3), rho = 1, Lin = TRUE, Rin = TRUE, 
           icontrol = icfitControl(maxit = 100000))
 
 ## Trend test
 data(illust3)
-FHtesticp(Surv(left, right, type = "interval2")~group, data = illust3, 
+FHtesticp(Surv(left, right, type = "interval2") ~ group, data = illust3, 
           subset = c(1:100, 601:700, 1201:1250), lambda = 1, Lin = TRUE, 
           Rin = TRUE, alternative = "increasing")
 
 ## K-sample test
-FHtesticp(Surv(left, right, type = "interval2")~as.character(zper), data = duser, 
-          subset = (zper>1)&(zgen == 0), rho = 3, lambda = 3, Lin = TRUE, Rin = TRUE)
+FHtesticp(Surv(left, right, type = "interval2") ~ as.character(zper), data = duser, 
+          subset = (zper > 1) & (zgen == 0), rho = 3, lambda = 3, Lin = TRUE, Rin = TRUE)
 }
 
 \keyword{survival}
