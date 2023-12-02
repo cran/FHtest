@@ -89,10 +89,10 @@ function(L, R, group, rho=0, lambda=0, alternative, permcontrol = permControl(),
   }
   }
 
-  out$information <- paste("\t",out$information,"\n\nParameters: rho=",as.character(rho), ", lambda=",as.character(lambda),"\nDistribution: permutation approach (",sep = "")
-  if (icp$algorithm == "pclt") out$information <- paste(out$information,"asymptotic approximation using central limit theorem)",sep = "")
-  else if (icp$algorithm == "exact.ce") out$information <- paste(out$information,"exact method using complete enumeration)",sep = "")
-  else if (icp$algorithm == "exact.mc") out$information <- paste(out$information,"exact method using Monte Carlo with ",as.character(icp$nmc)," replications)",sep = "")
+  out$information <- paste("\t",out$information,"\n\nParameters: rho=", as.character(rho), ", lambda=",as.character(lambda),"\nDistribution: permutation approach (",sep = "")
+  if (icp$algorithm == "pclt") out$information <- paste(out$information,"asymptotic approximation using central limit theorem)", sep = "")
+  else if (icp$algorithm == "exact.ce") out$information <- paste(out$information, "exact method using complete enumeration)", sep = "")
+  else if (icp$algorithm == "exact.mc") out$information <- paste(out$information, "exact method using Monte Carlo with ", as.character(icp$nmc)," replications)",sep = "")
   else if (icp$algorithm == "exact.network") out$information <- paste(out$information,"exact method using a network algorithm)",sep = "")
 
   class(out)<-"FHtesticp"

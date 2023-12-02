@@ -13,10 +13,10 @@
   }
 } 
 \references{
-        Calle, M. L. and Gómez, G. (2001). Nonparametric Bayesian estimation from interval-censored data using Monte Carlo methods. Journal of
+        Calle, M. L. and GÃ³mez, G. (2001). Nonparametric Bayesian estimation from interval-censored data using Monte Carlo methods. Journal of
         Statistical Planning and Inference \bold{98}, 73--87.
 
-        Gómez, G., Calle, M. L. and Oller, R. (2004). Frequentist and Bayesian approaches for interval-censored data and their implementation in R.
+        GÃ³mez, G., Calle, M. L. and Oller, R. (2004). Frequentist and Bayesian approaches for interval-censored data and their implementation in R.
         Statistical Papers \bold{45}, 139--173.
 
         Volberding, P. A., Lagakos, S. W., Grimes, J. M., Stein, D. S., \emph{et al.} (1995). A Comparison of Immediate with Deferred Zidovudine

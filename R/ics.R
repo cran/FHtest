@@ -1,14 +1,14 @@
 ics <-
-function (icFIT, group, rho, alternative = "two.sided", tol.svd= 10^-8) {
+function (icFIT, group, rho, alternative = "two.sided", tol.svd = 10^-8) {
     x <- group
     A <- icFIT$A
     n <- dim(A)[[1]]
-    model.int <- 1+(rho>0)
+    model.int <- 1 + (rho>0)
     if (is.numeric(x)) {
         x <- matrix(x, n, 1)
-        if (length(unique(x)) == 2)
+        if (length(unique(x)) == 2) {
             test <- "2-sample"
-        else test <- "correlation"
+        } else test <- "correlation"
     } else if (is.character(x) | is.factor(x)) {
         ux <- unique(x)
         nx <- length(ux)
@@ -33,18 +33,18 @@ function (icFIT, group, rho, alternative = "two.sided", tol.svd= 10^-8) {
         sum((Ai[-1] - Ai[-(m + 1)]) * mult)
     }
     dgdb.nox <- apply(A, 1, calcScores, mult = dpdb.nox)
-    cc <- dgdb.nox/gg
+    cc <- dgdb.nox / gg
     mmUpperTri <- matrix(1, m, m)
     mmUpperTri[lower.tri(mmUpperTri)] <- 0
-    dpdgam <- switch(model.int, diag(S * log(S)), -diag((1/rho)*S * (1 -
-        S^rho)))
+    dpdgam <- switch(model.int, diag(S * log(S)),
+                               -diag((1 / rho) * S * (1 - S^rho)))
     dgdgam <- matrix(NA, n, m)
     for (j in 1:m) {
         dgdgam[, j] <- apply(A, 1, calcScores, mult = dpdgam[j,
             ])
     }
-    d2pdb2.nox <- switch(model.int, S * log(S) * (1 + log(S)), -(1/(rho^2))*S * (1 -
-        S^rho) * (-1 + (rho+1) * S^rho))
+    d2pdb2.nox <- switch(model.int, S * log(S) * (1 + log(S)),
+                                    -(1/(rho^2))*S * (1 - S^rho) * (-1 + (rho+1) * S^rho))
     d2gdb2.nox <- apply(A, 1, calcScores, mult = d2pdb2.nox)
     d2pdbdgam.nox <- switch(model.int, diag(S * log(S) *
         (1 + log(S))), diag(-(1/(rho^2))*S * (1 - S^rho) * (-1 + (rho+1) * S^rho)))

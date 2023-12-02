@@ -41,7 +41,7 @@ It is difficult to prove the asymptotic validity of the standard score tests for
         \item{n}{Number of observations in each group.}
         \item{fit}{Object of class \code{icfit} giving the NPMLE of all responses combined (ignoring the group variable).}
         \item{diff}{The weighted observed minus expected number of events in each group.}
-        \item{scores}{Vector with the same length as \code{L} and \code{R}, containing the rank scores (see Oller and Gómez, 2012).}
+        \item{scores}{Vector with the same length as \code{L} and \code{R}, containing the rank scores (see Oller and GÃ³mez, 2012).}
         \item{statistic}{Either the chi-square or Z statistic.}
         \item{var}{The variance matrix of the test.}
         \item{d2L.dB2}{Second derivative of the log-likelihood with respect to \eqn{\beta}.}
@@ -58,9 +58,9 @@ It is difficult to prove the asymptotic validity of the standard score tests for
 
         Fay, M. P. (1999). Comparing several score tests for interval-censored data. Statistics in Medicine \bold{18}, 273--285.
 
-        Gómez, G., Calle, M. L., Oller, R. and Langohr, K. (2009). Tutorial on methods for interval-censored data and their implementation in R. Statistical Modelling \bold{9}, 259--297.
+        GÃ³mez, G., Calle, M. L., Oller, R. and Langohr, K. (2009). Tutorial on methods for interval-censored data and their implementation in R. Statistical Modelling \bold{9}, 259--297.
 
-        Oller, R. and Gómez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics \bold{40}, 501--516.
+        Oller, R. and GÃ³mez, G. (2012). A generalized Fleming and Harrington's class of tests for interval-censored data. The Canadian Journal of Statistics \bold{40}, 501--516.
         
         Oller, R. and Langohr, K. (2017). FHtest: An {R} Package for the Comparison of Survival Curves with Censored Data. Journal of Statistical Software \bold{81}, 1--25.
 }

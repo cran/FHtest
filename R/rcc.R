@@ -14,16 +14,17 @@ function (times, status, z, rho, lambda)
   nevent <- colSums(neventg)
 
   nriskg <- matrix(1, length(fail), k)
-  for (i in 1:k)
+  for (i in 1:k) {
     nriskg[, i] <- colSums(matrix(rep(fail,each = sum(z == uz[i])),,length(fail)) <= times[z == uz[i]])
+  }
   nrisk <- rowSums(nriskg)
 
   observed <- (w^rho * (1 - w)^lambda) %*% t(neventg)
   expected <- (w^rho * (1 - w)^lambda) %*% (nriskg * (nevent/nrisk))
 
-  v <- (w^rho * (1 - w)^lambda)^2 * (nevent * (nrisk - nevent)/(nrisk - 1))
+  v <- (w^rho * (1 - w)^lambda)^2 * (nevent * (nrisk - nevent) / (nrisk - 1))
   v[nrisk == 1] <- 0
-  v <- diag(c(v %*% (nriskg/nrisk))) - t(nriskg/nrisk) %*% ((nriskg/nrisk) * v)
+  v <- diag(c(v %*% (nriskg/nrisk))) - t(nriskg/nrisk) %*% ((nriskg / nrisk) * v)
 
   list(obs = c(observed), exp = c(expected), var = v)
 }
